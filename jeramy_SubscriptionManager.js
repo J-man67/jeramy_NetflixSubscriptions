@@ -2,7 +2,7 @@
 
 const plans = [
   { id: 1, name: "Basic", price: 9.9, maxScreens: 1, resolution: "720p", hasAds: false },
-  { id: 2, name: "Standard", price: 15.9, maxScreens: 2, resolution: "1080p", hasAds: false },
+  { id: 2, name: "Standard", price: 15.9, maxScreens: 2, resolution: "1080p", hasAds: true },
   { id: 3, name: "Premium", price: 21.9, maxScreens: 4, resolution: "4K", hasAds: false }
 ];
 
@@ -39,5 +39,13 @@ module.exports = {
     let plan = plans[user.planId - 1];
     if (screens > plan.maxScreens) return user.name + " cannot stream: " + plan.name + " allows only " + plan.maxScreens + " screen(s)";
     else return user.name + " can stream in " + plan.resolution + " on " + screens + " screen(s)";
-  }
+  },
+  showsAds(userIndex) {
+    let user = users[userIndex];
+    if (!user) return "User not found";
+
+    let plan = plans[user.planId - 1];
+    if (plan.hasAds == true) return user.name + " will see ads";
+    else return user.name + " will not see ads";
+  },
 };
