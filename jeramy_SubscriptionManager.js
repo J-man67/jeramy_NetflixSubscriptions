@@ -30,5 +30,14 @@ module.exports = {
     if (!plan) return "Plan not found";
 
     return plan.name + ": $" + plan.price + " per month, " + plan.maxScreens + " screen(s), " + plan.resolution;
+  },
+    canStream(userIndex, screens) {
+    let user = users[userIndex];
+    if (!user) return "User not found";
+    if (user.status == "cancelled") return user.name + " cannot stream: subscription is cancelled";
+
+    let plan = plans[user.planId - 1];
+    if (screens > plan.maxScreens) return user.name + " cannot stream: " + plan.name + " allows only " + plan.maxScreens + " screen(s)";
+    else return user.name + " can stream in " + plan.resolution + " on " + screens + " screen(s)";
   }
 };
