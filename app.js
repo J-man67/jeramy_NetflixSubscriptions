@@ -20,4 +20,9 @@ console.log(manager.showsAds(1));
 //changes users plans
 console.log(manager.changePlan(1, 3));
 console.log(manager.changePlan(0, 1));
+console.log(manager.changePlan(2, 1));
+
+//cancels users subscriptions
+console.log(manager.cancelSubscription(2));
+console.log(manager.cancelSubscription(3));
 

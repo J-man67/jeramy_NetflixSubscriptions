@@ -61,4 +61,12 @@ module.exports = {
     if (newPlan.price > oldPlan.price) return user.name + " upgraded from " + oldPlan.name + " to " + newPlan.name;
     else return user.name + " downgraded from " + oldPlan.name + " to " + newPlan.name;
   },
+    cancelSubscription(userIndex) {
+    let user = users[userIndex];
+    if (!user) return "User not found";
+    if (user.status == "cancelled") return user.name + " is already cancelled";
+
+    user.status = "cancelled";
+    return user.name + "'s subscription has been cancelled";
+  },
 };
