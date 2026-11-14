@@ -69,4 +69,16 @@ module.exports = {
     user.status = "cancelled";
     return user.name + "'s subscription has been cancelled";
   },
+    reactivateSubscription(userIndex, planId, newStartDate) {
+    let user = users[userIndex];
+    let plan = plans[planId - 1];
+    if (!user) return "User not found";
+    if (!plan) return "Plan not found";
+    if (user.status == "active") return user.name + " is already active";
+
+    user.status = "active";
+    user.planId = planId;
+    user.startDate = newStartDate;
+    return user.name + " reactivated on the " + plan.name + " plan";
+  }
 };

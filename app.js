@@ -26,3 +26,8 @@ console.log(manager.changePlan(2, 1));
 console.log(manager.cancelSubscription(2));
 console.log(manager.cancelSubscription(3));
 
+//reactivates users subscriptions
+console.log(manager.reactivateSubscription(2, 2, "2026-11-14"));
+
+//gets summery to check for the reactivation
+console.log(manager.getUserSummary(2));
