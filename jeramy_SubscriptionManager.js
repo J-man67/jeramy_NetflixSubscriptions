@@ -24,5 +24,11 @@ module.exports = {
 
     let plan = plans[user.planId - 1];
     return user.name + " | " + plan.name + " plan | " + user.status + " | since " + user.startDate;
+  },
+    getPlanDetails(planIndex) {
+    let plan = plans[planIndex];
+    if (!plan) return "Plan not found";
+
+    return plan.name + ": $" + plan.price + " per month, " + plan.maxScreens + " screen(s), " + plan.resolution;
   }
 };
