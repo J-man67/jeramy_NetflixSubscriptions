@@ -13,13 +13,16 @@ const users = [
   { id: 104, name: "Ravi", planId: 2, startDate: "2026-02-28", status: "active" }
 ];
 
+
+
 module.exports = {
-    // Explain what function A does
-    functionA() {
-        return 1+2;
-    },
-    // Explain what function B does
-    functionB() {
-        console.log("Hello function B");
-    }
-}
+  description: "Streaming subscription manager",
+
+  getUserSummary(userIndex) {
+    let user = users[userIndex];
+    if (!user) return "User not found";
+
+    let plan = plans[user.planId - 1];
+    return user.name + " | " + plan.name + " plan | " + user.status + " | since " + user.startDate;
+  }
+};
