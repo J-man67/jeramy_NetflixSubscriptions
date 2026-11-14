@@ -48,4 +48,17 @@ module.exports = {
     if (plan.hasAds == true) return user.name + " will see ads";
     else return user.name + " will not see ads";
   },
+    changePlan(userIndex, newPlanId) {
+    let user = users[userIndex];
+    let newPlan = plans[newPlanId - 1];
+    if (!user) return "User not found";
+    if (!newPlan) return "Plan not found";
+    if (user.status == "cancelled") return "Please reactivate the subscription first";
+    if (user.planId == newPlanId) return user.name + " is already on this plan";
+
+    let oldPlan = plans[user.planId - 1];
+    user.planId = newPlanId;
+    if (newPlan.price > oldPlan.price) return user.name + " upgraded from " + oldPlan.name + " to " + newPlan.name;
+    else return user.name + " downgraded from " + oldPlan.name + " to " + newPlan.name;
+  },
 };
