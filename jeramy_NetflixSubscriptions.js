@@ -18,7 +18,7 @@ const users = [
 module.exports = {
   description: "Streaming subscription manager",
 
-  //shows a uses name, plan, status and start date
+  //shows a users name, plan, status and start date
   getUserSummary(userIndex) {
     let user = users[userIndex];
     if (!user) return "User not found";
