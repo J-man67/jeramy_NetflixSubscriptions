@@ -1,4 +1,4 @@
-const manager = require("./jeramy_SubscriptionManager.js");
+const manager = require("./jeramy_NetflixSubscriptions.js");
 
 //shows a uses name, plan, status and start date
 console.log(manager.description);
